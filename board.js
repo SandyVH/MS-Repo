@@ -146,6 +146,3 @@ class board {
         return 0;
     }
 }
-
-export default board; 
-export default move;

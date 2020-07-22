@@ -71,5 +71,3 @@ class computer{
         }
     }
 }
-
-export default computer;
