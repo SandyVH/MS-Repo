@@ -429,7 +429,7 @@ header #screen {
   overflow: hidden;
   position: relative;
   padding: 20px;
-  background-image: url(images/screen2.jpg);
+  background-image: url(images/screen11.jpg);
   opacity: 0.8;
   background-size: cover;
   background-position: center;
@@ -496,13 +496,25 @@ header #screen button:hover {
   #container #board_wrap , #container2 #board_wrap2 {
       width: 65%;
       height: 100%;
-      background-color: #131313;
+      /* background-color: #131313;
       background-image: url(images/pattern.png);
-      background-size: 300px;
+      background-size: 300px; */
+      background-color: rgb(156, 137, 120);
       float: left;
       display: flex;
       align-items: center;
       justify-content: center; }
+
+    #container #board_wrap p , #container2 #board_wrap2 p {
+        font-size: 50px;
+        color: white;
+        background-color: black;
+        border: 5px solid #505050;
+        border-radius: 5px;
+        text-align: center;
+        width: 50%;
+        position: absolute;
+    }
 
 #newgame , #newgame2 {
   background-color: #52d29d;
@@ -711,7 +723,7 @@ header #screen button:hover {
   #board:after , #board2:after {
     content: '';
     position: absolute;
-    background-color: #52d29d;
+    background-color: peru;
     transition: 0.7s; }
   #board[class^="H"]:after , #board2[class^="H"]:after {
     width: 0%;

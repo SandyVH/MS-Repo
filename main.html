@@ -88,7 +88,7 @@
 					  		var x = document.getElementById("myText").value;
 					  		if(x!="") { 
 								document.getElementById("demo").innerHTML = x;
-								document.getElementById("temp").innerHTML = "";
+								document.getElementById("temp").setAttribute("style", "visibility: hidden; width: 0; height: 0; margin: 0;");
 							}
 						}
 					</script>
@@ -111,6 +111,7 @@
 				<div class="cell-7"></div>
 				<div class="cell-8"></div>
 			</div>
+			<p id="gameover" style="visibility: hidden">It's a Draw</p>
 		</div>
 
 	</div>
@@ -166,7 +167,7 @@
 							function myFunction2() {
 					  		var x = document.getElementById("myText2").value;
 							  	if(x!=""){ document.getElementById("demo2").innerHTML = x;
-							  	document.getElementById("temp2").innerHTML = "";}
+							  	document.getElementById("temp2").setAttribute("style", "visibility: hidden; width: 0; height: 0; margin: 0;");}
 							}
 						</script>
 				</div>
@@ -179,7 +180,7 @@
 							function myFunction3() {
 					  		var x = document.getElementById("myText3").value;
 							  	if(x!=""){ document.getElementById("demo3").innerHTML = x;
-							  	document.getElementById("temp3").innerHTML = "";}
+							  	document.getElementById("temp3").setAttribute("style", "visibility: hidden; width: 0; height: 0; margin: 0;");}
 							}
 						</script>
 				</div>
@@ -201,6 +202,7 @@
 				<div class="cell-7"></div>
 				<div class="cell-8"></div>
 			</div>
+			<p id="gameover2" style="visibility: hidden">It's a Draw</p>
 		</div>
 
 	</div>
