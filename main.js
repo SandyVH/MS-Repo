@@ -39,6 +39,10 @@ function newGame(depth = 9, starting_player = 1) {
 	let C = new computer(parseInt(depth));
 	let B = new board([ ['','',''],['','',''],['','',''] ]);
 
+	//Hiding the game result element
+	var gameover = document.getElementById("gameover");
+    gameover.setAttribute("style", "visibility: hidden;");
+
 	//clearing all board classes and creating empty cells in html
 	let Board = document.getElementById("board");
 	Board.className = '';
@@ -83,6 +87,11 @@ function newGame(depth = 9, starting_player = 1) {
                 if(B.evaluate() < 0) {
                     addClass(document.getElementById("charachters"), 'celebrate_human');
 					drawWinningLine(B.win_direction, B.win_row);
+
+					// Making the game result visible
+					var gameover = document.getElementById("gameover");
+                    gameover.innerHTML = "YOU WIN";
+                    gameover.setAttribute("style", "visibility: visible;");
 				}
 
 				// if the board is not full and no one has won yet, get the computer's best move and update the UI
@@ -98,9 +107,20 @@ function newGame(depth = 9, starting_player = 1) {
                     if(B.evaluate() > 0) {
                         addClass(document.getElementById("charachters"), 'celebrate_robot');
 						drawWinningLine(B.win_direction, B.win_row);
+						
+						var gameover = document.getElementById("gameover");
+                        gameover.innerHTML = "YOU LOSE";
+                        gameover.setAttribute("style", "visibility: visible;");
                     }
                     player_turn = 1; //Switch turns
 				}
+				
+				// Updating the game result if it is a draw
+				if(B.isFull() && B.evaluate() == 0) {
+                    var gameover = document.getElementById("gameover");
+                    gameover.innerHTML = "It's a Draw";
+                    gameover.setAttribute("style", "visibility: visible;");
+                }
             }, false);
         }
     }
@@ -110,6 +130,10 @@ function newGame(depth = 9, starting_player = 1) {
 function newGame2(starting_player = 1) {
 	//Instantiating an empty board
 	let B = new board([ ['','',''],['','',''],['','',''] ]);
+
+	//Hiding the game result element
+	var gameover = document.getElementById("gameover2");
+    gameover.setAttribute("style", "visibility: hidden;");
 
 	//clearing all board classes and creating empty cells in html
     let Board = document.getElementById("board2");
@@ -145,6 +169,12 @@ function newGame2(starting_player = 1) {
                     if(B.evaluate() > 0) {
                         addClass(document.getElementById("charachters2"), 'celebrate_human2');
 						drawWinningLine2(B.win_direction, B.win_row);
+						
+						var x = document.getElementById("demo2").innerHTML;
+                        var gameover = document.getElementById("gameover2");
+                        if(x != "") gameover.innerHTML = x.toUpperCase()+" WINS";
+                        else gameover.innerHTML = "PLAYER 1 WINS";
+                        gameover.setAttribute("style", "visibility: visible;");
                     }
                     player_turn = 0;//Switch turns
                 }
@@ -159,9 +189,21 @@ function newGame2(starting_player = 1) {
                     if(B.evaluate() < 0) {
                         addClass(document.getElementById("charachters2"), 'celebrate_human3');
 						drawWinningLine2(B.win_direction, B.win_row);
+						
+						var x = document.getElementById("demo3").innerHTML;
+                        var gameover = document.getElementById("gameover2");
+                        if(x != "") gameover.innerHTML = x.toUpperCase()+" WINS";
+                        else gameover.innerHTML = "PLAYER 2 WINS";
+                        gameover.setAttribute("style", "visibility: visible;");
                     }
                     player_turn = 1;//Switch turns
 				}
+				
+				if(B.isFull() && B.evaluate() == 0) {
+                    var gameover = document.getElementById("gameover2");
+                    gameover.innerHTML = "It's a Draw";
+                    gameover.setAttribute("style", "visibility: visible;");
+                }
             }, false);
         } 
     }
