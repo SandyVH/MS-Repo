@@ -222,14 +222,15 @@ document.addEventListener("DOMContentLoaded", event => {
 		if(event.target.tagName !== "BUTTON") return;
 		player_choice = event.target.dataset.value;
 
-		//If 1 player is chosen, Scroll the page to the 1-player UI and start a new 1-player game with dfault values
+		//If 1 player is chosen, Scroll the page to the 1-player UI and start a new 1-player game with default values
         if(player_choice == 1) {
 			$("html, body").scrollTop($("#container").offset().top);
 			document.getElementById("temp").setAttribute("style", "visibility: visible;");
             let depth = 9;
             let starting_player = 1;
-            newGame(depth, starting_player);
+			newGame(depth, starting_player);
 		}
+
 		//If 2 players is selected, scroll to the 2 player UI
         else
             $("html, body").scrollTop($(".2player").offset().top); 
@@ -245,9 +246,8 @@ document.addEventListener("DOMContentLoaded", event => {
 			document.getElementById("temp2").setAttribute("style", "visibility: visible;");
 			document.getElementById("temp3").setAttribute("style", "visibility: visible;");
 
-			//Starts a new 2 player game when page loads with default value
-			let starting_player = 1;
-            newGame2(starting_player);
+			//Starts a new 2 player game when page loads with default value(To reset the screen)
+            newGame2();
 	
 			//Event handler for starting player option
             document.getElementById("starting_player2").addEventListener("click", (event) => {
@@ -261,6 +261,7 @@ document.addEventListener("DOMContentLoaded", event => {
             }, false);
 	
             document.getElementById("newgame2").addEventListener('click', () => {
+				console.log(starting_player);//check
                 newGame2(starting_player);
             });
 			

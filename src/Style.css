@@ -480,6 +480,21 @@ header #screen button:hover {
   color: #fff;
 }
 
+header #screen p {
+  margin-top: 50px;
+  font-size: 30px;
+  font-style: oblique;
+  font-family: New Century Schoolbook, serif;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+header #screen p img {
+  width: 40px;
+  height: 40px;
+}
+
 #container, #container2 {
   height: 100%;
   overflow: hidden;
