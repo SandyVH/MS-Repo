@@ -219,6 +219,7 @@ document.addEventListener("DOMContentLoaded", event => {
 	let player_choice = 1;
 	//Event handler for no. of players selection
     document.getElementById("options").addEventListener("click", (event) => {
+		if(event.target.tagName !== "BUTTON") return;
 		player_choice = event.target.dataset.value;
 
 		//If 1 player is chosen, Scroll the page to the 1-player UI and start a new 1-player game with dfault values
@@ -233,7 +234,6 @@ document.addEventListener("DOMContentLoaded", event => {
         else
             $("html, body").scrollTop($(".2player").offset().top); 
 		
-        if(event.target.tagName !== "BUTTON" || hasClass(event.target, 'active')) return;
         let player_choices = [...document.getElementById("options").children];
 		player_choices.forEach((choice) => {
 			removeClass(choice, 'active');
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", event => {
 			document.getElementById("temp3").setAttribute("style", "visibility: visible;");
 
 			//Starts a new 2 player game when page loads with default value
-            let starting_player = 1;
+			let starting_player = 1;
             newGame2(starting_player);
 	
 			//Event handler for starting player option
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 		//Events handlers for depth, starting player options
 		document.getElementById("depth").addEventListener("click", (event) => {
-			if(event.target.tagName !== "LI" || hasClass(event.target, 'active')) return
+			if(event.target.tagName !== "LI" || hasClass(event.target, 'active')) return;
 			let depth_choices = [...document.getElementById("depth").children[0].children];
 			depth_choices.forEach((choice) => {
 				removeClass(choice, 'active');
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", event => {
 		}, false);
 
 		document.getElementById("starting_player").addEventListener("click", (event) => {
-			if(event.target.tagName !== "LI" || hasClass(event.target, 'active')) return
+			if(event.target.tagName !== "LI" || hasClass(event.target, 'active')) return;
 			let starting_player_choices = [...document.getElementById("starting_player").children[0].children];
 			starting_player_choices.forEach((choice) => {
 				removeClass(choice, 'active');
