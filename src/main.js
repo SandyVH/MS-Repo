@@ -247,21 +247,21 @@ document.addEventListener("DOMContentLoaded", event => {
 			document.getElementById("temp3").setAttribute("style", "visibility: visible;");
 
 			//Starts a new 2 player game when page loads with default value(To reset the screen)
-            newGame2();
+			let starting_player;
+			newGame2(starting_player);
 	
 			//Event handler for starting player option
             document.getElementById("starting_player2").addEventListener("click", (event) => {
-                if(event.target.tagName !== "LI" || hasClass(event.target, 'active')) return;
+                if(event.target.tagName !== "LI") return;
                 let starting_player_choices = [...document.getElementById("starting_player2").children[0].children];
                 starting_player_choices.forEach((choice) => {
                     removeClass(choice, 'active');
                 });
-                addClass(event.target, 'active');
+				addClass(event.target, 'active');
                 starting_player = event.target.dataset.value;
             }, false);
 	
             document.getElementById("newgame2").addEventListener('click', () => {
-				console.log(starting_player);//check
                 newGame2(starting_player);
             });
 			
