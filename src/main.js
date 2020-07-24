@@ -211,6 +211,7 @@ function newGame2(starting_player = 1) {
 
 document.addEventListener("DOMContentLoaded", event => { 
 	let starting_player;
+	let depth;
 
 	//Scroll to the Top of the page each time the page is loaded
 	$(window).on('beforeunload', function() {
@@ -227,9 +228,7 @@ document.addEventListener("DOMContentLoaded", event => {
         if(player_choice == 1) {
 			$("html, body").scrollTop($("#container").offset().top);
 			document.getElementById("temp").setAttribute("style", "visibility: visible;");
-            let depth = 9;
-            starting_player = 1;
-			newGame(depth, starting_player);
+			newGame();
 		}
 
 		//If 2 players is selected, scroll to the 2 player UI
@@ -262,7 +261,6 @@ document.addEventListener("DOMContentLoaded", event => {
             }, false);
 	
             document.getElementById("newgame2").addEventListener('click', () => {
-				console.log(starting_player);//debug
                 newGame2(starting_player);
             });
 			
@@ -275,9 +273,7 @@ document.addEventListener("DOMContentLoaded", event => {
 	
 	if(player_choice == 1) {
 		//Starts a new 1 player game when page loads with default values
-		let depth = 9;
-		starting_player = 1;
-		newGame(depth, starting_player);
+		newGame();
 
 		//Events handlers for depth, starting player options
 		document.getElementById("depth").addEventListener("click", (event) => {
