@@ -210,6 +210,7 @@ function newGame2(starting_player = 1) {
 }
 
 document.addEventListener("DOMContentLoaded", event => { 
+	let starting_player;
 
 	//Scroll to the Top of the page each time the page is loaded
 	$(window).on('beforeunload', function() {
@@ -227,7 +228,7 @@ document.addEventListener("DOMContentLoaded", event => {
 			$("html, body").scrollTop($("#container").offset().top);
 			document.getElementById("temp").setAttribute("style", "visibility: visible;");
             let depth = 9;
-            let starting_player = 1;
+            starting_player = 1;
 			newGame(depth, starting_player);
 		}
 
@@ -247,12 +248,11 @@ document.addEventListener("DOMContentLoaded", event => {
 			document.getElementById("temp3").setAttribute("style", "visibility: visible;");
 
 			//Starts a new 2 player game when page loads with default value(To reset the screen)
-			let starting_player;
-			newGame2(starting_player);
+			newGame2();
 	
 			//Event handler for starting player option
             document.getElementById("starting_player2").addEventListener("click", (event) => {
-                if(event.target.tagName !== "LI") return;
+                if(event.target.tagName !== "LI" || hasClass(event.target, 'active')) return;
                 let starting_player_choices = [...document.getElementById("starting_player2").children[0].children];
                 starting_player_choices.forEach((choice) => {
                     removeClass(choice, 'active');
@@ -262,6 +262,7 @@ document.addEventListener("DOMContentLoaded", event => {
             }, false);
 	
             document.getElementById("newgame2").addEventListener('click', () => {
+				console.log(starting_player);//debug
                 newGame2(starting_player);
             });
 			
@@ -275,7 +276,7 @@ document.addEventListener("DOMContentLoaded", event => {
 	if(player_choice == 1) {
 		//Starts a new 1 player game when page loads with default values
 		let depth = 9;
-		let starting_player = 1;
+		starting_player = 1;
 		newGame(depth, starting_player);
 
 		//Events handlers for depth, starting player options
